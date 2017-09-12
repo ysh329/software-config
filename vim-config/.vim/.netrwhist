@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/etc/profile.d'
+let g:netrw_dirhist_2='/home/jiahaipeng/OpenCVCL/trunk/modules/ocl/src/kernel'
+let g:netrw_dirhist_3='/home/jiahaipeng/OpenCVCL/branches/opencv2.4/modules'
+let g:netrw_dirhist_4='/home/jiahaipeng/OpenCVCL/branches/opencv2.4/cmake'
+let g:netrw_dirhist_5='/home/jiahaipeng/cmake/project1_1'
+let g:netrw_dirhist_6='/opt/AMDAPP/samples/opencl/cl/app/TransferOverlap'
