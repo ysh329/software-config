@@ -5,8 +5,8 @@ vim configures including `.vim`, `.vimrc` and `.viminfo`.
 
 ```shell
 # clone codes from github
-git clone --recursive https://github.com/ysh329/vim-config.git
-cd vim-config
+git clone --recursive https://github.com/ysh329/software-config.git
+cd software-config/vim-config
 
 # backup old vim config
 cp ~/.vimrc ~/.vimrc-bak
