@@ -13,3 +13,5 @@ set nobackup
 set clipboard+=unnamed
 set paste
 syntax on
+#set mouse=a
+#set mouse=
