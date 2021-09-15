@@ -15,3 +15,6 @@ set paste
 syntax on
 #set mouse=a
 #set mouse=
+
+" ============================ specific file type ===========================
+autocmd BufRead,BufNew *.cu,*.cl  set filetype=cpp 
