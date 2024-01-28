@@ -64,3 +64,4 @@ alias gp='git push origin HEAD:refs/for/main'
 
 ############## OTHERS ###############
 trap date DEBUG
+alias ls='ls --color=auto'
