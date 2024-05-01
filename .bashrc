@@ -57,7 +57,7 @@ fi
 # Patent Pending Prompt
 export PS1="${nameC}\u${atC}@${hostC}\h:${pathC}\w${gitC}\$(gitPrompt)${pointerC}▶${normalC} "
 
-############## ALIAS ###############
+############## GIT ###############
 alias gl='git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
 alias gp='git push origin HEAD:refs/for/main'
 
@@ -86,6 +86,23 @@ git_branch_keep() {
     fi
 }
 alias gbk='git_branch_keep'
+
+gp() {
+    echo "=====> Starting rebase ... <=====" 
+    git pull --rebase origin main || {
+        echo "Error: Rebase failed."
+        return 1
+    }
+    echo "=====> Rebase successful, preparing to submit for review ... <======"
+    # If use Gerrit
+    git push origin HEAD:refs/for/main || {
+        echo "Error: Submit for review failed."
+        return 1
+    }   
+    # if use non Gerrit
+    # git push --force-with-lease origin HEAD || return
+    echo "=====> Submit for review successful."
+}
 
 ############## OTHERS ###############
 trap date DEBUG
