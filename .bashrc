@@ -61,6 +61,31 @@ export PS1="${nameC}\u${atC}@${hostC}\h:${pathC}\w${gitC}\$(gitPrompt)${pointerC
 alias gl='git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
 alias gp='git push origin HEAD:refs/for/main'
 
+git_branch_keep() {
+    local keep_branch
+
+    if [[ "$1" == "--keep" ]]; then
+        keep_branch="$2"
+
+        if [[ -z "$keep_branch" ]]; then
+            echo "Error: Please specify the branch you want to keep."
+            return 1
+        elif [[ ! $(git rev-parse --verify "$keep_branch") ]]; then
+            echo "Error: '$keep_branch' is not a valid branch."
+            return 1
+        fi
+
+        echo "You need to manually execute the following commands:"
+        local branches_to_delete
+        branches_to_delete=$(git branch | grep -v "^\*" | grep -v "$keep_branch" | xargs -n 1 echo "git branch --delete ")
+        echo -e "$branches_to_delete"
+    else    
+        echo "Usage: ${FUNCNAME[0]} --keep <branch-name>"
+        echo "       Generates commands to delete merged branches except <branch-name>, which you need to execute manually."
+        return 1
+    fi
+}
+alias gbk='git_branch_keep'
 
 ############## OTHERS ###############
 trap date DEBUG
