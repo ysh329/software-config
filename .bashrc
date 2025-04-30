@@ -57,6 +57,10 @@ fi
 # Patent Pending Prompt
 export PS1="${nameC}\u${atC}@${hostC}\h:${pathC}\w${gitC}\$(gitPrompt)${pointerC}▶${normalC} "
 
+##################################
+# tmux
+alias kill-tmux-no-attached='tmux list-sessions | grep -v attached | cut -d: -f1 | xargs -I{} tmux kill-session -t {}'
+
 ############## GIT ###############
 alias gl='git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
 alias gp='git push origin HEAD:refs/for/main'
